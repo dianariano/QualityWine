@@ -1,8 +1,8 @@
-import numpy as np
-import pandas as pd
 from pyspark.sql import SparkSession
 from pyspark.sql.types import StructType, StructField
 from pyspark.sql.types import DoubleType, IntegerType, StringType, TimestampType
+import numpy as np
+import pandas as pd
 
 __author__ = 'Diana Riano'
 

@@ -2,7 +2,7 @@ import sys
 from pyspark import SparkContext
 from pyspark import SparkConf
 from create_dataframe import *
-from exploratory_data import *
+from exploratory_data import eda
 from pyspark.sql import SparkSession
 # from jobs.ALSModel import *
 
@@ -14,10 +14,10 @@ def main():
     #spark = SparkSession.builder.appName("Wine Quality").getOrCreate()
     #sc = spark.sparkContext.setLogLevel("ERROR")
     
-    sourcefile = './data/winequality.csv'
+    sourcefile = '../data/winequality.csv'
 
     df_file = df_create(sourcefile)
-    eda(df_file) 
+    df_wine = eda(df_file) 
 
 
     print('Python %s on %s' % (sys.version, sys.platform))
