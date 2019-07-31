@@ -23,9 +23,10 @@ def wineQuality():
     df_wine = eda(df_file) 
     out_test, data_predicted = classificationModel(df_wine)
     confMatrix(data_predicted, out_test)
-    accuracy = evaluationModel(out_test, data_predicted)
-
+    precision, accuracy = evaluationModel(out_test, data_predicted)
+    
     print("Accuracy para modelo considerando 10 categorias: " + str(accuracy*100) + '%\n' )
+    print("Precisão para modelo considerando 10 categorias: " + str(precision*100) + '%\n' 
 
 if __name__ == "__main__":
     wineQuality()

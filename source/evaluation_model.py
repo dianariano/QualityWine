@@ -4,4 +4,7 @@ from sklearn import metrics
 
 def evaluationModel(output, out_pred):
 
-    return metrics.accuracy_score(output, out_pred)
+    precision = metrics.precision_score(output, out_pred)
+    accuracy = metrics.accuracy_score(output, out_pred)
+    
+    return precision, accuracy
