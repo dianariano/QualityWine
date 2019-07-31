@@ -1,7 +1,3 @@
-# from pyspark.sql import SparkSession
-# from pyspark.sql import SQLContext
-# from pyspark.sql.types import *
-# from pyspark.sql.functions import *
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -22,9 +18,6 @@ def change2Numeric(df_column, typeCol):
 
 def eda(data):
 
-    #spark = SparkSession.builder.appName("Video Recomendation").getOrCreate()
-    #sc = spark.sparkContext
-
     nameColumns = data.columns.tolist()
     columnsObject= [column for column in nameColumns if isObject(data[column])]
     print('Lista de colunas que são de tipo texto no dataset: ' + str(columnsObject))
@@ -40,10 +33,15 @@ def eda(data):
     df_wine = dataWithoutNA 
 
     print('Numero de linhas não validas no dataset :  \n' + str(count_novalid) +' \n')
-    print('tipos de dados do dataset que se usara na analisis exploratoria :  \n' + str(df_wine.dtypes) + ' \n')
+    print('Tipos de dados do dataset que se usara na analisis exploratoria :  \n' + str(df_wine.dtypes) + ' \n')
     print('Descrição matematica das colunas numericas no dataset de vinho :  \n ' + str(df_wine.describe()) + ' \n')
-
-    plotHistograms(nameColumns, df_wine)
     
+    plotHistograms(nameColumns[:4], df_wine)
+    plotHistograms(nameColumns[4:8], df_wine)
+    plotHistograms(nameColumns[8:12], df_wine)
+    
+    plt.hist(df_wine[nameColumns[-1]], density=True, histtype='bar', label=nameColumns[-1])
+    plt.legend(prop={'size': 10})
+    plt.show()
 
-    return dataWithoutDup
+    return df_wine
