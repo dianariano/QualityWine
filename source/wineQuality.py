@@ -11,10 +11,10 @@ def wineQuality():
     
     for param in sys.argv :
        
-        try:
+        if not(param):
             sourcefile = param
         
-        except:
+        else: 
             sourcefile = '../data/winequality.csv'
 
         print('Arquivo csv que contem os dados do dataset de vinhos: '+ sourcefile)
@@ -26,7 +26,7 @@ def wineQuality():
     precision, accuracy = evaluationModel(out_test, data_predicted)
     
     print("Accuracy para modelo considerando 10 categorias: " + str(accuracy*100) + '%\n' )
-    print("Precisão para modelo considerando 10 categorias: " + str(precision*100) + '%\n' 
+    print("Precisão para modelo considerando 10 categorias: " + str(precision*100) + '%\n')
 
 if __name__ == "__main__":
     wineQuality()

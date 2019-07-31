@@ -47,11 +47,8 @@ python wineQuality.py file_dir
 
 4. **Qual foi o critério utilizado para validação do modelo? Por que escolheu utilizar este método?**
 
-    Para o modelo desenvolvido decidi usar matriz de confusão, e acurácia (Accuracy), são metodos que validam a porcentagem de precisão que o modelo faz nas predições sobre o conjunto de dados de teste (20% do dataset foi usado no conjunto de dados de teste). A acuracia não leva em consideração o que é positivo e o que é negativo. 
-    
-    do dataset  a proporção de casos que foram corretamente previstos, sejam eles verdadeiro positivo ou verdadeiro negativo. Em nosso exemplo: 65/100 = 0,65
-    
-     Modelos de classificação de aprendizado de máquina podem ser validados por técnicas como validação cruzada, onde os dados são divididos em conjuntos de teste e treinamento e medidas apropriadas como precisão são calculadas para ambos os conjuntos de dados e comparadas. Para além da precisão, sensibilidade (Avaliação Positiva Verdadeira) e especificidade (Avaliação Negativa Verdadeira) podem prover modos de modelos de avaliação. De forma similar, Avaliações Positivas Falsas assim como Avaliações Negativas Falsas poder ser computadas. Curvas Receptoras de Operação (CRO) em conjunto com a Área em baixo da CRO (AUC) oferecem ferramentas adicionais para a classificação de modelos de avaliação. Graus maiores de AUC estão associados a um modelo de melhor performance
-
+    Para o modelo desenvolvido decidi usar matriz de confusão, acurácia (Accuracy) e precisão estes são metodos que validam a porcentagem de precisão que o modelo tem sobre as predições do conjunto de dados de teste (20% do dataset foi usado no conjunto de dados de teste). A acuracia não leva em consideração o que é positivo e o que é negativo. Respeito a precisão eu usei ela para calcular a media ponderada de precisão para cada classe do dataset.
 
 5. **Quais evidências você possui de que seu modelo é suficientemente bom?**
+
+    As metricas de avaliação usadas ajudam a ver o desempenho do meu modelo no contexto de dados do dataset. Usar a matrix de confusão e uma analise global de acuracia mostra quais clases meu modelo erra mais na classificação, mas pelo contexto e o entendimento do problema e abordagem desenvolvida acredito que o modelo e suficientemente bom para predições de dados do mesmo contexto do dataset de treino. O dataset tem uma distribuição desigual de classes mas poderiamos melhorar o modelo criando uma agrupação de classes e a clasificação ser em tres os quais poderiam classificar o vinho como ruim, medio ou bom, isso ajuda a ter uma distribuição melhor naas classes do dataset e melhorar os valores das metricas de avaliação obtidas.
